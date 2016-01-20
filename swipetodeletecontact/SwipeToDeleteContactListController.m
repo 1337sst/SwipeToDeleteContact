@@ -10,9 +10,6 @@
 #import "Preferences/PSListController.h"
 
 
-
-
-
 @interface SwipeToDeleteContactListController : PSListController
 
 @end

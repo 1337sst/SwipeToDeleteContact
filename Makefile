@@ -16,7 +16,6 @@ SwipeToDeleteContact_FRAMEWORKS = UIKit ContactsUI Contacts
 SwipeToDeleteContact_CFLAGS = -Wno-error
 
 
-
 include $(THEOS_MAKE_PATH)/tweak.mk
 
 before-stage::
