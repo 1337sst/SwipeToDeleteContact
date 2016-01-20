@@ -1,6 +1,5 @@
 #import <UIKit/UITableViewCell.h>
 
-
 @class NSString, NSDateComponents, NSDate, NSData, NSArray, CNActivityAlert, NSDictionary, NSSet, SGRecordId;
 
 
@@ -13,16 +12,11 @@
 @protocol CNContactDataSource <NSObject, NSCopying>
 
 
-
 @property (nonatomic,readonly) NSArray * contacts; 
 @property (nonatomic,readonly) CNContactStore * store; 
 
 
 @end
-
-
-
-
 
 @protocol CNContactDataSource, CNContactListViewControllerDelegate;
 @class NSObject, _UIContentUnavailableView, CNContact, NSString, CNContactFormatter, UISearchController, UISearchBar, CNContactListBannerView, CNAvatarCardController, NSArray;
@@ -35,18 +29,15 @@
 
 @end
 
-
 @class NSMutableDictionary, NSString, NSMutableArray, NSDictionary, NSArray;
 
 @interface CNSaveRequest : NSObject 
-
 
 -(void)deleteContact:(id)arg1 ;
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex;
 
 
 @end
-
 
 @class NSArray, NSString, NSData, NSDateComponents, CNActivityAlert, NSDate, CNContact, NSSet, NSDictionary;
 
@@ -57,18 +48,13 @@
 
 @end
 
-
-
-
 @interface UITableViewRowData : NSObject
 - (NSInteger)globalRowForRowAtIndexPath:(NSIndexPath *)indexPath;
 @end
 
-@interface UITableView (OBOContacts)
+@interface UITableView (SwipeToDeleteContact)
 - (UITableViewRowData *)_rowData;
 @end
-
-
 
 @interface CNContactStoreDataSource : NSObject  {
 
@@ -86,8 +72,6 @@
 @end
 
 @interface CNContactStore : NSObject
-
-
 
 -(BOOL)executeSaveRequest:(id)arg1 error:(id*)arg2 ;
 

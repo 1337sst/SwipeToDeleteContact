@@ -1,25 +1,17 @@
 
 
 //#import "ContactsUI/CNContactListViewController.h"  // MANDATORY HEADER
-
 #import <UIKit/UIKit.h>
-
 #import "Headers.h"
 
 #define IS_OS_9_OR_LATER [[[UIDevice currentDevice] systemVersion] floatValue] >= 9.0
-
-
 #define APPID @"com.packetfahrer.swipetodeletecontact"
 #define DEFAULT_ENABLED YES
 #define PREFS_ENABLED_KEY @"useAlarm"
-
 #define Enabled ([preferences objectForKey: PREFS_ENABLED_KEY] ? [[preferences objectForKey: PREFS_ENABLED_KEY] boolValue] : DEFAULT_ENABLED)
-
 #define DEFAULT_USEALARM YES
 #define PREFS_USEALARM_KEY @"useAlarm"
-
 #define useAlarm ([preferences objectForKey: PREFS_USEALARM_KEY] ? [[preferences objectForKey: PREFS_USEALARM_KEY] boolValue] : DEFAULT_USEALARM)
-
 
 #define LocalizationsDirectory @"/Library/Application Support/SwipeToDeleteContact/Localizations"
 #define LOCALIZED_TITEL  [[NSBundle bundleWithPath:LocalizationsDirectory]localizedStringForKey:@"Swipe to Delete!" value:@"Swipe to Delete!" table:nil]
@@ -44,8 +36,6 @@ static NSInteger globalRow = -1;
 static CNContactStoreDataSource *dataSource;
 static CNContactStore *store;
 
-// static BOOL useAlarm = YES; //Like Confirm 
-
 static NSDictionary *preferences = nil;
 
 
@@ -56,16 +46,12 @@ void loadPreferences() {
 		[preferences release];
 		 preferences = nil;
 
-
 	}
 	
 	if (IS_OS_9_OR_LATER) { 
 
-		
 		NSArray *keyList = [(NSArray *)CFPreferencesCopyKeyList((CFStringRef)APPID, kCFPreferencesCurrentUser, kCFPreferencesAnyHost) autorelease];
 		preferences = (NSDictionary *)CFPreferencesCopyMultiple((CFArrayRef)keyList, (CFStringRef)APPID, kCFPreferencesCurrentUser, kCFPreferencesAnyHost);
-
-		
 
 	}
 
@@ -99,8 +85,6 @@ void loadPreferences() {
 
 	}
 
-
-	
 	return YES;
 
 	}
@@ -134,7 +118,6 @@ void loadPreferences() {
 						[x show];
 
 
-					
 					return;
 		
     	}
@@ -151,8 +134,6 @@ void loadPreferences() {
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
 
 
- 	
-	
 		if ([alertView tag] == 0075) {
 		
 			if (buttonIndex == 1) {
@@ -165,12 +146,7 @@ void loadPreferences() {
 				
 
 			}
-
-		
 		}
-
-
-	
 }
 
 %new(v@:)
@@ -188,17 +164,13 @@ void loadPreferences() {
 
     	CNContact *c = [dataSource.contacts objectAtIndex:globalRow];
     	
-
     	[updatedContact setSnapshot:c];
 
-
 		[saveRequest deleteContact:updatedContact];
-
 
 		[store executeSaveRequest:saveRequest  error:nil] ;
 		
 		self.tableView.editing = NO;
-
 	
 }
 
